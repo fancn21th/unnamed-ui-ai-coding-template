@@ -1,0 +1,32 @@
+---
+description: 组件修改约束，优先在业务层实现
+globs: "**/*.{tsx,css}"
+alwaysApply: true
+---
+
+# 组件修改约束
+
+## 核心原则
+
+**如非必要，尽量不要修改** `src/components/wuhan` 以及 `src/components/ui` 中的组件。
+
+## 实现优先级
+
+1. **业务层实现**：在页面、布局或业务模块中通过 `className`、`style`、组合等方式实现需求
+2. **组件 props 覆盖**：利用组件已有的 `className`、`classNames` 等扩展点
+3. **必要时才改组件**：仅当上述方式无法满足、且改动属于通用能力时，才修改 wuhan/ui 组件
+
+## 示例
+
+```tsx
+// ✅ 业务层通过 className 覆盖
+<PageHeader className="py-4 min-h-10" ... />
+
+// ✅ 业务层组合实现布局
+<div className="flex items-center gap-[var(--Gap-gap-xl)]">
+  <PageHeaderButtonGroup>...</PageHeaderButtonGroup>
+  <PageHeaderUser />
+</div>
+
+// ❌ 避免为单页需求修改 block 组件默认样式
+```
