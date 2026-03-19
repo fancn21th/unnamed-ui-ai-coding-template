@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "wuhan-components": {
+      "command": "node",
+      "args": [
+        "/Users/wuxinbo/Documents/Work/unname/unnamed-ui/packages/mcp/dist/index.js"
+      ],
+      "env": {
+        "COMPONENT_ROOT": "/Users/wuxinbo/Documents/Work/unname/unnamed-ui/apps/www/registry/wuhan"
+      }
+    },
+    "Figma Desktop": {
+      "url": "http://127.0.0.1:3845/mcp"
+    }
+  }
+}

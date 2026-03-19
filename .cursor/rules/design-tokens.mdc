@@ -1,0 +1,102 @@
+---
+description: 设计系统 token 使用规范，确保样式一致性
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# 设计 Token 规范
+
+所有样式必须使用设计系统 CSS 变量，禁止硬编码颜色、间距等值。
+
+## 高还原约束
+
+- 优先使用语义 token（Text/Container/Border），避免直接依赖原语色板
+- 同一页面的字号、间距、圆角、阴影必须来自同一组 token 体系
+- 优先通过组件 variant/size/color 控制样式，避免在页面层覆盖组件内部视觉
+- 若需临时样式，先使用 shadcn 语义类，再考虑 token 自定义值
+
+## 颜色
+
+使用语义化 token，不要直接引用原语色板：
+
+```tsx
+// ✅ 语义化 token
+className="text-[var(--Text-text-primary)]"
+className="bg-[var(--Container-bg-container)]"
+className="border-[var(--Border-border-neutral)]"
+
+// ✅ shadcn/Tailwind 别名也可使用
+className="bg-primary text-primary-foreground"
+className="bg-secondary text-muted-foreground"
+className="bg-destructive"
+
+// ❌ 禁止硬编码
+className="text-gray-800"
+className="bg-[#4A56FF]"
+```
+
+### 常用语义化 token
+
+| 用途 | Token |
+|------|-------|
+| 页面背景 | `--Page-bg-page`, `--Page-bg-page-secondary` |
+| 容器背景 | `--Container-bg-container`, `--Container-bg-neutral-light` |
+| 品牌背景 | `--Container-bg-brand`, `--Container-bg-brand-light` |
+| 标题文字 | `--Text-text-title` |
+| 正文文字 | `--Text-text-primary`, `--Text-text-secondary` |
+| 辅助文字 | `--Text-text-tertiary`, `--Text-text-disable` |
+| 品牌文字 | `--Text-text-brand` |
+| 状态文字 | `--Text-text-success`, `--Text-text-warning`, `--Text-text-error` |
+| 边框 | `--Border-border-neutral`, `--Border-divider-neutral-basic` |
+| AI 渐变 | `--ai-bg`, `--ai-general`, `--ai-light` |
+
+## 间距
+
+使用设计系统的间距变量：
+
+```tsx
+// ✅ 设计 token
+className="p-[var(--Padding-padding-com-md)]"
+className="gap-[var(--Gap-gap-sm)]"
+className="m-[var(--Margin-margin-com-lg)]"
+
+// ✅ Tailwind 间距类（简单场景）
+className="p-4 gap-3"
+```
+
+| 级别 | Padding | Gap | Margin | 值 |
+|------|---------|-----|--------|-----|
+| 2xs | `--Padding-padding-com-2xs` | `--Gap-gap-2xs` | `--Margin-margin-com-2xs` | 2px |
+| xs | `--Padding-padding-com-xs` | `--Gap-gap-xs` | `--Margin-margin-com-xs` | 4px |
+| sm | `--Padding-padding-com-sm` | `--Gap-gap-sm` | `--Margin-margin-com-sm` | 6px |
+| md | `--Padding-padding-com-md` | `--Gap-gap-md` | `--Margin-margin-com-md` | 8px |
+| lg | `--Padding-padding-com-lg` | `--Gap-gap-lg` | `--Margin-margin-com-lg` | 12px |
+| xl | `--Padding-padding-com-xl` | `--Gap-gap-xl` | `--Margin-margin-com-xl` | 16px |
+| 2xl | `--Padding-padding-com-2xl` | `--Gap-gap-2xl` | `--Margin-margin-com-2xl` | 24px |
+
+## 字体
+
+```tsx
+className="font-[var(--font-family-CN)]"           // 中文
+className="font-[var(--font-family-code)]"          // 代码
+style={{ fontSize: "var(--font-size-2)" }}          // 14px
+className="leading-[var(--line-height-2)]"          // 22px
+className="font-[var(--font-weight-600)]"           // semibold
+```
+
+## 圆角 & 阴影
+
+```tsx
+className="rounded-[var(--radius-md)]"              // 默认圆角
+className="shadow-[var(--shadow-basic)]"             // 基础阴影
+```
+
+## 主题类
+
+可在根元素组合使用：`theme-radius-medium`, `theme-spacing-normal`, `theme-shadow-basic`, `theme-brand`
+
+## 禁止项
+
+- 禁止 `#xxxxxx` / `rgb()` / `hsl()` 颜色硬编码
+- 禁止大面积使用 `text-gray-*` / `bg-gray-*` 这类原始灰阶色
+- 禁止在同一页面混用多套风格 token（如 brand + 自定义随机色）

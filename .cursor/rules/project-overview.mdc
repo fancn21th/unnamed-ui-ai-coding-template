@@ -1,0 +1,34 @@
+---
+description: 项目技术栈、架构和编码约定，AI 生成代码时必须遵守
+alwaysApply: true
+---
+
+# 项目概述
+
+本项目是基于自有组件库的 AI 应用 UI 模板，包含完整的设计系统。
+
+## 技术栈
+
+- React 19 + TypeScript + Vite 7
+- Tailwind CSS 4（通过 `@tailwindcss/vite` 插件，无 tailwind.config.js）
+- shadcn/ui (new-york 风格) + Radix UI
+- class-variance-authority (cva) + clsx + tailwind-merge
+- lucide-react 图标
+- react-hook-form + zod 表单验证
+- 路径别名: `@/*` → `src/*`
+
+## 组件体系（优先级从高到低）
+
+1. **wuhan composed** (`@/components/wuhan/composed/*`) — 业务级高层组件，优先使用
+2. **wuhan blocks** (`@/components/wuhan/blocks/*`) — 低层原语组件，当 composed 不满足需求时组合使用
+3. **shadcn ui** (`@/components/ui/*`) — 基础 UI 原语（Button, Input, Select, Tabs 等）
+
+## 编码约定
+
+- 文件命名: kebab-case（如 `page-header.tsx`）
+- 组件: 函数式组件，`React.forwardRef` 转发 ref
+- 样式: 使用 `cn()` 工具合并类名（`import { cn } from "@/lib/utils"`）
+- CSS 变量: 优先使用设计系统语义化 token（如 `var(--Text-text-primary)`），不要硬编码颜色
+- 每个组件添加 `data-slot` 属性用于标识
+- wuhan blocks 使用 `*Primitive` 后缀导出
+- 组件顶部加 `"use client"` 指令

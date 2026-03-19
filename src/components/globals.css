@@ -1,0 +1,1229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+/* themes.css - inlined for registry distribution */
+/* 默认主题 - 品牌色 */
+/* 默认使用品牌色主题，已在 globals.css 中定义 */
+/* 如果没有应用任何主题类，默认就是品牌色 */
+
+/* 圆角主题 - Small */
+.theme-radius-small,
+.theme-radius-small .theme-container,
+.theme-radius-small [data-radix-popper-content-wrapper] {
+  --radius: 4px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-circle: 999px;
+}
+
+/* 圆角主题 - Medium (默认) */
+.theme-radius-medium,
+.theme-radius-medium .theme-container,
+.theme-radius-medium [data-radix-popper-content-wrapper] {
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-circle: 999px;
+}
+
+/* 圆角主题 - Large */
+.theme-radius-large,
+.theme-radius-large .theme-container,
+.theme-radius-large [data-radix-popper-content-wrapper] {
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-circle: 999px;
+}
+
+/* 圆角主题 - None */
+.theme-radius-none,
+.theme-radius-none .theme-container,
+.theme-radius-none [data-radix-popper-content-wrapper] {
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-circle: 999px;
+}
+
+/* 间距主题 - Compact (紧凑) */
+.theme-spacing-compact,
+.theme-spacing-compact .theme-container,
+.theme-spacing-compact [data-radix-popper-content-wrapper] {
+  --spacing: 2px; /* space-1 */
+}
+
+/* 间距主题 - Normal (正常) - 默认 */
+.theme-spacing-normal,
+.theme-spacing-normal .theme-container,
+.theme-spacing-normal [data-radix-popper-content-wrapper] {
+  --spacing: 4px; /* space-2 */
+}
+
+/* 间距主题 - Comfortable (舒适) */
+.theme-spacing-comfortable,
+.theme-spacing-comfortable .theme-container,
+.theme-spacing-comfortable [data-radix-popper-content-wrapper] {
+  --spacing: 6px; /* space-3 */
+}
+
+/* 阴影主题 - None (无阴影) */
+.theme-shadow-none,
+.theme-shadow-none .theme-container,
+.theme-shadow-none [data-radix-popper-content-wrapper] {
+  --shadow-basic: none;
+  --shadow-medium: none;
+  --shadow-high: none;
+}
+
+/* 阴影主题 - Basic (基础阴影) - 默认 */
+.theme-shadow-basic,
+.theme-shadow-basic .theme-container,
+.theme-shadow-basic [data-radix-popper-content-wrapper] {
+  --shadow-basic: 0 1px 10px 0 #0000000d, 0 4px 5px 0 #00000014, 0 2px 4px -1px #0000001f;
+  --shadow-medium: 0 3px 14px 2px #0000000d, 0 8px 10px 1px #0000000f, 0 5px 5px -3px #0000001a;
+  --shadow-high: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #0000001f;
+}
+
+/* 阴影主题 - Medium (中等阴影) */
+.theme-shadow-medium,
+.theme-shadow-medium .theme-container,
+.theme-shadow-medium [data-radix-popper-content-wrapper] {
+  --shadow-basic: 0 3px 14px 2px #0000000d, 0 8px 10px 1px #0000000f, 0 5px 5px -3px #0000001a;
+  --shadow-medium: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #0000001f;
+  --shadow-high: 0 12px 60px 10px #0000000d, 0 32px 48px 4px #0000000a, 0 16px 20px -10px #0000001f;
+}
+
+/* 阴影主题 - High (高阴影) */
+.theme-shadow-high,
+.theme-shadow-high .theme-container,
+.theme-shadow-high [data-radix-popper-content-wrapper] {
+  --shadow-basic: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #0000001f;
+  --shadow-medium: 0 12px 60px 10px #0000000d, 0 32px 48px 4px #0000000a, 0 16px 20px -10px #0000001f;
+  --shadow-high: 0 24px 120px 20px #0000000d, 0 64px 96px 8px #0000000a, 0 32px 40px -20px #0000001f;
+}
+
+/* 字体主题 - PingFang SC (中文) */
+.theme-font-pingfang .theme-container,
+.theme-font-pingfang [data-radix-popper-content-wrapper] {
+  --font-family-CN: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-family-cn: var(--font-family-CN);
+  --font-sans: var(--font-family-CN);
+}
+
+/* 字体主题 - Helvetica Neue (英文) */
+.theme-font-helvetica .theme-container,
+.theme-font-helvetica [data-radix-popper-content-wrapper] {
+  --font-family-CN: Arial, "Helvetica Neue", Helvetica, "Segoe UI", system-ui, sans-serif;
+  --font-family-cn: var(--font-family-CN);
+  --font-sans: var(--font-family-CN);
+}
+
+/* 字体主题 - Source Han Sans SC (显示字体) */
+.theme-font-display .theme-container,
+.theme-font-display [data-radix-popper-content-wrapper] {
+  --font-family-CN: "Segoe UI Variable Display", "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei",
+    "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", system-ui, sans-serif;
+  --font-family-cn: var(--font-family-CN);
+  --font-sans: var(--font-family-CN);
+}
+
+/* Neutral 主题 - 使用中性色 */
+.theme-neutral,
+.theme-neutral .theme-container,
+.theme-neutral [data-radix-popper-content-wrapper] {
+  --primary: var(--Container-bg-neutral);
+  --primary-foreground: var(--Text-text-inverse);
+  --ring: var(--Border-border-neutral);
+
+  @variant dark {
+    --primary: var(--Container-bg-neutral);
+    --primary-foreground: var(--Text-text-inverse);
+    --ring: var(--Border-border-neutral);
+  }
+}
+
+/* 品牌色主题变体 */
+.theme-brand,
+.theme-brand .theme-container,
+.theme-brand [data-radix-popper-content-wrapper] {
+  --primary: var(--Container-bg-brand);
+  --primary-foreground: var(--Text-text-inverse);
+  --ring: var(--Focusring-focusring-brand);
+
+  @variant dark {
+    --primary: var(--Container-bg-brand);
+    --primary-foreground: var(--Text-text-inverse);
+    --ring: var(--Focusring-focusring-brand);
+  }
+}
+
+/* 成功色主题 */
+.theme-success,
+.theme-success .theme-container,
+.theme-success [data-radix-popper-content-wrapper] {
+  --primary: var(--Container-bg-success);
+  --primary-foreground: var(--Text-text-inverse);
+  --ring: var(--Focusring-focusring-success);
+
+  @variant dark {
+    --primary: var(--Container-bg-success);
+    --primary-foreground: var(--Text-text-inverse);
+    --ring: var(--Focusring-focusring-success);
+  }
+}
+
+/* 警告色主题 */
+.theme-warning,
+.theme-warning .theme-container,
+.theme-warning [data-radix-popper-content-wrapper] {
+  --primary: var(--Container-bg-warning);
+  --primary-foreground: var(--Text-text-inverse);
+  --ring: var(--Focusring-focusring-warning);
+
+  @variant dark {
+    --primary: var(--Container-bg-warning);
+    --primary-foreground: var(--Text-text-inverse);
+    --ring: var(--Focusring-focusring-warning);
+  }
+}
+
+/* 错误色主题 */
+.theme-error,
+.theme-error .theme-container,
+.theme-error [data-radix-popper-content-wrapper] {
+  --primary: var(--Container-bg-error);
+  --primary-foreground: var(--Text-text-inverse);
+  --ring: var(--Focusring-focusring-error);
+
+  @variant dark {
+    --primary: var(--Container-bg-error);
+    --primary-foreground: var(--Text-text-inverse);
+    --ring: var(--Focusring-focusring-error);
+  }
+}
+
+/* 缩放主题 - 响应式字体和间距 */
+.theme-scaled .theme-container,
+.theme-scaled [data-radix-popper-content-wrapper] {
+  @media (min-width: 1024px) {
+    --radius: 6px;
+    --text-lg: 1rem;
+    --text-xl: 1.1rem;
+    --text-2xl: 1.2rem;
+    --text-3xl: 1.3rem;
+    --text-4xl: 1.4rem;
+    --text-5xl: 1.5rem;
+    --text-6xl: 1.6rem;
+    --text-7xl: 1.7rem;
+    --text-8xl: 1.8rem;
+    --text-base: 0.85rem;
+    --text-sm: 0.8rem;
+    --spacing: 0.2rem;
+  }
+
+  [data-slot="select-trigger"],
+  [data-slot="toggle-group-item"] {
+    --spacing: 0.2rem;
+  }
+
+  [data-slot="card"] {
+    border-radius: var(--radius);
+    padding-block: calc(var(--spacing) * 4);
+    gap: calc(var(--spacing) * 2);
+  }
+
+  [data-slot="card"].pb-0 {
+    padding-bottom: 0;
+  }
+}
+
+/* 组合主题示例 - 可以组合多个主题类 */
+.theme-rounded-none .theme-container,
+.theme-rounded-none [data-radix-popper-content-wrapper] {
+  --radius: 0;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-circle: 999px;
+}
+
+.theme-rounded-small .theme-container,
+.theme-rounded-small [data-radix-popper-content-wrapper] {
+  --radius: 4px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-circle: 999px;
+}
+
+.theme-rounded-medium .theme-container,
+.theme-rounded-medium [data-radix-popper-content-wrapper] {
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-circle: 999px;
+}
+
+.theme-rounded-large .theme-container,
+.theme-rounded-large [data-radix-popper-content-wrapper] {
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-circle: 999px;
+}
+
+.theme-rounded-full .theme-container,
+.theme-rounded-full [data-radix-popper-content-wrapper] {
+  --radius: 999px;
+  --radius-sm: 999px;
+  --radius-md: 999px;
+  --radius-lg: 999px;
+  --radius-xl: 999px;
+  --radius-2xl: 999px;
+  --radius-circle: 999px;
+}
+
+
+
+@custom-variant dark (&:is(.dark *));
+
+/**
+ * 重置组件内 button，避免被项目全局 button 样式覆盖
+ * 使用 !important 覆盖宿主样式，下方 padding 覆盖规则确保组件样式生效
+ */
+button.unnamed-btn-reset {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* 恢复组件的 padding，覆盖上面的 reset */
+button.unnamed-btn-reset.px-2 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+button.unnamed-btn-reset.px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+button.unnamed-btn-reset.px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+button.unnamed-btn-reset.px-5 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+button.unnamed-btn-reset.px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+button.unnamed-btn-reset.py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+button.unnamed-btn-reset.py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+button.unnamed-btn-reset.py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+button.unnamed-btn-reset.p-0 { padding: 0 !important; }
+button.unnamed-btn-reset.p-2 { padding: 0.5rem !important; }
+button.unnamed-btn-reset.p-3 { padding: 0.75rem !important; }
+button.unnamed-btn-reset.p-4 { padding: 1rem !important; }
+/* 设计 token 变量（SelectCard、ToggleButton 等使用） */
+button.unnamed-btn-reset[class*="padding-com-lg"] { padding-left: var(--Padding-padding-com-lg) !important; padding-right: var(--Padding-padding-com-lg) !important; }
+button.unnamed-btn-reset[class*="padding-com-md"] { padding-left: var(--Padding-padding-com-md) !important; padding-right: var(--Padding-padding-com-md) !important; }
+button.unnamed-btn-reset[class*="Margin-margin-com-md"] { padding-top: var(--Margin-margin-com-md) !important; padding-bottom: var(--Margin-margin-com-md) !important; }
+
+:root {
+  /* ==================== Thinking loading pulse animation ==================== */
+  @keyframes thinking-loading-pulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .border {
+    border-width: var(--border-width);
+  }
+  .border-x {
+    border-left-width: var(--border-width);
+    border-right-width: var(--border-width);
+  }
+  .border-y {
+    border-top-width: var(--border-width);
+    border-bottom-width: var(--border-width);
+  }
+  .border-t {
+    border-top-width: var(--border-width);
+  }
+  .border-r {
+    border-right-width: var(--border-width);
+  }
+  .border-b {
+    border-bottom-width: var(--border-width);
+  }
+  .border-l {
+    border-left-width: var(--border-width);
+  }
+  .font-size-1 {
+    font-size: var(--font-size-1);
+  }
+  .font-size-2 {
+    font-size: var(--font-size-2);
+  }
+  .font-size-3 {
+    font-size: var(--font-size-3);
+  }
+  .font-size-4 {
+    font-size: var(--font-size-4);
+  }
+  .font-size-5 {
+    font-size: var(--font-size-5);
+  }
+  .font-size-6 {
+    font-size: var(--font-size-6);
+  }
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  /* ==================== Color 颜色原语 - Figma ==================== */
+  --White-alpha-white-alpha-500: #FFFFFF80;
+  --White-alpha-white-alpha-800: #FFFFFFCC;
+  --White-alpha-white-alpha-1000: #FFFFFFFF;
+  --Black-alpha-black-alpha-50: #0000000D;
+  --Black-alpha-black-alpha-500: #00000080;
+  --Black-alpha-black-alpha-800: #000000CC;
+  --Black-alpha-black-alpha-1000: #000000FF;
+  --Light-Neutral-neutral-0: #FFFFFFFF;
+  --Light-Neutral-neutral-10: #FCFCFDFF;
+  --Light-Neutral-neutral-50: #F9F9FBFF;
+  --Light-Neutral-neutral-100: #F6F6FAFF;
+  --Light-Neutral-neutral-200: #E8E7EDFF;
+  --Light-Neutral-neutral-300: #E1E0E7FF;
+  --Light-Neutral-neutral-400: #AAA8B3FF;
+  --Light-Neutral-neutral-500: #9E9CA6FF;
+  --Light-Neutral-neutral-600: #8E8C99FF;
+  --Light-Neutral-neutral-700: #666473FF;
+  --Light-Neutral-neutral-800: #403F4DFF;
+  --Light-Neutral-neutral-900: #1E1D26FF;
+  --Light-Neutral-neutral-1000: #000000FF;
+  --Light-Brand-brand-50: #F7F9FFFF;
+  --Light-Brand-brand-100: #EDF2FFFF;
+  --Light-Brand-brand-200: #DFE9FFFF;
+  --Light-Brand-brand-300: #D0DDFFFF;
+  --Light-Brand-brand-400: #9CA9FFFF;
+  --Light-Brand-brand-500: #7381FFFF;
+  --Light-Brand-brand-600: #4A56FFFF;
+  --Light-Brand-brand-700: #343AD9FF;
+  --Light-Brand-brand-800: #2222B3FF;
+  --Light-Brand-brand-900: #18148CFF;
+  --Light-Brand-brand-1000: #130D66FF;
+  --Light-Success-success-50: #F3FCF6FF;
+  --Light-Success-success-100: #E2F8ECFF;
+  --Light-Success-success-200: #CFF3DFFF;
+  --Light-Success-success-300: #B9ECD1FF;
+  --Light-Success-success-400: #4AD49DFF;
+  --Light-Success-success-500: #26C78CFF;
+  --Light-Success-success-600: #06BA7EFF;
+  --Light-Success-success-700: #009468FF;
+  --Light-Success-success-800: #006E50FF;
+  --Light-Success-success-900: #004737FF;
+  --Light-Success-success-1000: #00211BFF;
+  --Light-Warning-warning-50: #FFF6F1FF;
+  --Light-Warning-warning-100: #FFEBE0FF;
+  --Light-Warning-warning-200: #FFD8C0FF;
+  --Light-Warning-warning-300: #FFCAACFF;
+  --Light-Warning-warning-400: #FFB987FF;
+  --Light-Warning-warning-500: #FF9C5EFF;
+  --Light-Warning-warning-600: #FB7934FF;
+  --Light-Warning-warning-700: #D45A22FF;
+  --Light-Warning-warning-800: #AD3F13FF;
+  --Light-Warning-warning-900: #872808FF;
+  --Light-Warning-warning-1000: #611905FF;
+  --Light-Error-error-50: #FFF7F6FF;
+  --Light-Error-error-100: #FFEBE9FF;
+  --Light-Error-error-200: #FFDAD6FF;
+  --Light-Error-error-300: #FFCBC7FF;
+  --Light-Error-error-400: #FF9F9CFF;
+  --Light-Error-error-500: #FF7373FF;
+  --Light-Error-error-600: #FF494FFF;
+  --Light-Error-error-700: #D9343FFF;
+  --Light-Error-error-800: #B32230FF;
+  --Light-Error-error-900: #8C1424FF;
+  --Light-Error-error-10000: #660D1CFF;
+  --Dark-Neutral-neutral-0: #000000FF;
+  --Dark-Neutral-neutral-10: #141414FF;
+  --Dark-Neutral-neutral-50: #1B1A1DFF;
+  --Dark-Neutral-neutral-100: #232326FF;
+  --Dark-Neutral-neutral-200: #2A2A2EFF;
+  --Dark-Neutral-neutral-300: #313136FF;
+  --Dark-Neutral-neutral-400: #4B4A50FF;
+  --Dark-Neutral-neutral-500: #63626AFF;
+  --Dark-Neutral-neutral-600: #7C7A85FF;
+  --Dark-Neutral-neutral-700: #908E97FF;
+  --Dark-Neutral-neutral-800: #A3A1ABFF;
+  --Dark-Neutral-neutral-900: #B2AFBAFF;
+  --Dark-Neutral-neutral-1000: #C0BDC8FF;
+  --Dark-Brand-brand-50: #12172AFF;
+  --Dark-Brand-brand-100: #192152FF;
+  --Dark-Brand-brand-200: #20286FFF;
+  --Dark-Brand-brand-300: #283283FF;
+  --Dark-Brand-brand-400: #2C327EFF;
+  --Dark-Brand-brand-500: #373FADFF;
+  --Dark-Brand-brand-600: #424CDCFF;
+  --Dark-Brand-brand-700: #6A76E8FF;
+  --Dark-Brand-brand-800: #95A2F3FF;
+  --Dark-Brand-brand-900: #BFC8F8FF;
+  --Dark-Brand-brand-1000: #E9EDFAFF;
+  --Dark-Success-success-50: #121C16FF;
+  --Dark-Success-success-100: #122D20FF;
+  --Dark-Success-success-200: #0C3C28FF;
+  --Dark-Success-success-300: #114A32FF;
+  --Dark-Success-success-400: #0E5F44FF;
+  --Dark-Success-success-500: #0B8059FF;
+  --Dark-Success-success-600: #08A16EFF;
+  --Dark-Success-success-700: #24B580FF;
+  --Dark-Success-success-800: #47CA96FF;
+  --Dark-Success-success-900: #6FDAACFF;
+  --Dark-Success-success-1000: #9CE9C5FF;
+  --Dark-Warning-warning-50: #1F1612FF;
+  --Dark-Warning-warning-100: #341D12FF;
+  --Dark-Warning-warning-200: #481E08FF;
+  --Dark-Warning-warning-300: #57270EFF;
+  --Dark-Warning-warning-400: #7C4122FF;
+  --Dark-Warning-warning-500: #AA5629FF;
+  --Dark-Warning-warning-600: #D86A2FFF;
+  --Dark-Warning-warning-700: #E88E57FF;
+  --Dark-Warning-warning-800: #F3B181FF;
+  --Dark-Warning-warning-900: #F8CEABFF;
+  --Dark-Warning-warning-10000: #FAE7D5FF;
+  --Dark-Error-error-50: #221211FF;
+  --Dark-Error-error-100: #400D0EFF;
+  --Dark-Error-error-200: #58000AFF;
+  --Dark-Error-error-300: #690310FF;
+  --Dark-Error-error-400: #7E2C2FFF;
+  --Dark-Error-error-500: #AD363AFF;
+  --Dark-Error-error-600: #DC4146FF;
+  --Dark-Error-error-700: #E86A6AFF;
+  --Dark-Error-error-800: #F39895FF;
+  --Dark-Error-error-900: #F8C3BFFF;
+  --Dark-Error-error-1000: #FAEBE9FF;
+
+  /* ==================== Semantic 语义化 - Light (Figma) ==================== */
+  --Page-bg-page: var(--Light-Neutral-neutral-0);
+  --Page-bg-page-secondary: var(--Light-Neutral-neutral-50);
+  --Page-bg-page-brand: var(--Light-Brand-brand-50);
+  --Container-bg-mask-soft: var(--Black-alpha-black-alpha-50);
+  --Container-bg-mask: var(--Black-alpha-black-alpha-800);
+  --Container-bg-container: var(--Light-Neutral-neutral-0);
+  --Container-bg-container-secondary: var(--Light-Neutral-neutral-50);
+  --Container-bg-container-placeholder: var(--Light-Neutral-neutral-200);
+  --Container-bg-container-disable: var(--Light-Neutral-neutral-200);
+  --Container-bg-neutral-light: var(--Light-Neutral-neutral-100);
+  --Container-bg-neutral-light-hover: var(--Light-Neutral-neutral-200);
+  --Container-bg-neutral-light-active: var(--Light-Neutral-neutral-300);
+  --Container-bg-neutral: var(--Light-Neutral-neutral-800);
+  --Container-bg-neutral-hover: var(--Light-Neutral-neutral-700);
+  --Container-bg-neutral-active: var(--Light-Neutral-neutral-900);
+  --Container-bg-brand-light: var(--Light-Brand-brand-100);
+  --Container-bg-brand-light-hover: var(--Light-Brand-brand-200);
+  --Container-bg-brand-light-active: var(--Light-Brand-brand-300);
+  --Container-bg-brand: var(--Light-Brand-brand-600);
+  --Container-bg-brand-hover: var(--Light-Brand-brand-500);
+  --Container-bg-brand-active: var(--Light-Brand-brand-700);
+  --Container-bg-success-light: var(--Light-Success-success-100);
+  --Container-bg-success-light-hover: var(--Light-Success-success-200);
+  --Container-bg-success-light-active: var(--Light-Success-success-300);
+  --Container-bg-success: var(--Light-Success-success-600);
+  --Container-bg-success-hover: var(--Light-Success-success-500);
+  --Container-bg-success-active: var(--Light-Success-success-700);
+  --Container-bg-warning-light: var(--Light-Warning-warning-100);
+  --Container-bg-warning-light-hover: var(--Light-Warning-warning-200);
+  --Container-bg-warning-light-active: var(--Light-Warning-warning-300);
+  --Container-bg-warning: var(--Light-Warning-warning-600);
+  --Container-bg-warning-hover: var(--Light-Warning-warning-500);
+  --Container-bg-warning-active: var(--Light-Warning-warning-700);
+  --Container-bg-error-light: var(--Light-Error-error-100);
+  --Container-bg-error-light-hover: var(--Light-Error-error-200);
+  --Container-bg-error-light-active: var(--Light-Error-error-300);
+  --Container-bg-error: var(--Light-Error-error-600);
+  --Container-bg-error-hover: var(--Light-Error-error-500);
+  --Container-bg-error-active: var(--Light-Error-error-700);
+  --Text-text-inverse: var(--White-alpha-white-alpha-1000);
+  --Text-text-title: var(--Light-Neutral-neutral-900);
+  --Text-text-primary: var(--Light-Neutral-neutral-800);
+  --Text-text-secondary: var(--Light-Neutral-neutral-700);
+  --Text-text-tertiary: var(--Light-Neutral-neutral-500);
+  --Text-text-disable: var(--Light-Neutral-neutral-400);
+  --Text-text-placeholder: var(--Light-Neutral-neutral-400);
+  --Text-text-brand: var(--Light-Brand-brand-600);
+  --Text-text-brand-hover: var(--Light-Brand-brand-500);
+  --Text-text-brand-active: var(--Light-Brand-brand-700);
+  --Text-text-success: var(--Light-Success-success-600);
+  --Text-text-success-hover: var(--Light-Success-success-500);
+  --Text-text-success-active: var(--Light-Success-success-700);
+  --Text-text-warning: var(--Light-Warning-warning-600);
+  --Text-text-warning-hover: var(--Light-Warning-warning-500);
+  --Text-text-warning-active: var(--Light-Warning-warning-700);
+  --Text-text-error: var(--Light-Error-error-600);
+  --Text-text-error-hover: var(--Light-Error-error-500);
+  --Text-text-error-active: var(--Light-Error-error-700);
+  --Border-border-neutral: var(--Light-Neutral-neutral-300);
+  --Focusring-focusring-brand: var(--Light-Brand-brand-300);
+  --Focusring-focusring-error: var(--Light-Error-error-300);
+  --Focusring-focusring-success: var(--Light-Success-success-300);
+  --Focusring-focusring-warning: var(--Light-Warning-warning-300);
+  --Border-divider-neutral-basic: var(--Light-Neutral-neutral-200);
+  --Border-divider-neutral-strong: var(--Light-Neutral-neutral-300);
+  --Border-border-brand-light: var(--Light-Brand-brand-300);
+  --Border-border-brand-light-hover: var(--Light-Brand-brand-400);
+  --Border-border-brand-light-active: var(--Light-Brand-brand-400);
+  --Border-border-brand: var(--Light-Brand-brand-600);
+  --Border-border-brand-hover: var(--Light-Brand-brand-500);
+  --Border-border-brand-active: var(--Light-Brand-brand-700);
+  --Border-border-success-light: var(--Light-Success-success-300);
+  --Border-border-success-light-hover: var(--Light-Success-success-400);
+  --Border-border-success: var(--Light-Success-success-600);
+  --Border-border-success-hover: var(--Light-Success-success-500);
+  --Border-border-success-active: var(--Light-Success-success-700);
+  --Border-border-warning-light: var(--Light-Warning-warning-300);
+  --Border-border-warning-light-hover: var(--Light-Warning-warning-400);
+  --Border-border-warning: var(--Light-Warning-warning-600);
+  --Border-border-warning-hover: var(--Light-Warning-warning-500);
+  --Border-border-warning-active: var(--Light-Warning-warning-700);
+  --Border-border-error-light: var(--Light-Error-error-300);
+  --Border-border-error-light-hover: var(--Light-Error-error-400);
+  --Border-border-error-light-active: var(--Light-Error-error-400);
+  --Border-border-brand-light-active: var(--Light-Brand-brand-400);
+  --Border-border-error: var(--Light-Error-error-600);
+  --Border-border-error-hover: var(--Light-Error-error-500);
+  --Border-border-error-active: var(--Light-Error-error-700);
+
+  /* ==================== 旧变量别名 - 向后兼容未替换的引用 ==================== */
+  --text-primary: var(--Text-text-primary);
+  --text-secondary: var(--Text-text-secondary);
+  --bg-container: var(--Container-bg-container);
+  --bg-page: var(--Page-bg-page);
+  --bg-page-secondary: var(--Page-bg-page-secondary);
+  --bg-page-brand: var(--Page-bg-page-brand);
+  --bg-neutral-light-hover: var(--Container-bg-neutral-light-hover);
+  --bg-brand: var(--Container-bg-brand);
+  --bg-success: var(--Container-bg-success);
+  --bg-item-hover: var(--Container-bg-neutral-light-hover);
+  --bg-item-active: var(--Container-bg-neutral-light-active);
+  --border-neutral: var(--Border-border-neutral);
+  --font-family-cn: var(--font-family-CN);
+  --bg-brand-subtle: var(--Container-bg-brand-light);
+  --bg-brand-subtle-hover: var(--Container-bg-brand-light-hover);
+  --ring-brand: var(--Focusring-focusring-brand);
+  --bg-secondary: var(--Container-bg-neutral);
+  --bg-secondary-hover: var(--Container-bg-neutral-hover);
+  --bg-secondary-active: var(--Container-bg-neutral-active);
+  --bg-secondary-light: var(--Container-bg-neutral-light);
+  --bg-secondary-light-hover: var(--Container-bg-neutral-light-hover);
+  --bg-secondary-light-active: var(--Container-bg-neutral-light-active);
+  --border-secondary-light: var(--Border-border-neutral);
+  --border-secondary-light-hover: var(--Border-border-neutral);
+  --border-secondary-light-active: var(--Border-border-neutral);
+  --border-brand-light-active: var(--Border-border-brand-light-active);
+  --border-error-light-active: var(--Border-border-error-light-active);
+
+  /* Figma 变量 - 设计稿中有但语义特殊 */
+  --Container-bg-solid-disable-2: 50px;
+
+  /* ==================== shadcn 别名 - Tailwind 兼容 ==================== */
+  --background: var(--Page-bg-page);
+  --foreground: var(--Text-text-title);
+  --card: var(--Container-bg-container);
+  --card-foreground: var(--Text-text-title);
+  --popover: var(--Container-bg-container);
+  --popover-foreground: var(--Text-text-title);
+  --primary: var(--Container-bg-brand);
+  --primary-foreground: var(--Text-text-inverse);
+  --secondary: var(--Container-bg-neutral-light);
+  --secondary-foreground: var(--Text-text-title);
+  --muted: var(--Container-bg-neutral-light);
+  --muted-foreground: var(--Text-text-secondary);
+  --accent: var(--Container-bg-neutral-light);
+  --accent-foreground: var(--Text-text-title);
+  --destructive: var(--Container-bg-error);
+  --destructive-foreground: var(--Text-text-inverse);
+  --border: var(--Border-border-neutral);
+  --input: var(--Border-border-neutral);
+  --ring: var(--Focusring-focusring-brand);
+  --surface: var(--Page-bg-page-secondary);
+  --surface-foreground: var(--Text-text-title);
+
+  /* 代码块、选择、遮罩等 */
+  --code: #f9f9fb;
+  --code-foreground: #1e1d26;
+  --code-highlight: #f0f0f4;
+  --code-number: #9e9ca6;
+  --selection: #1e1d26;
+  --selection-foreground: #ffffff;
+  --bg-mask: var(--Container-bg-mask);
+  --bg-mask-soft: var(--Container-bg-mask-soft);
+  --bg-surface: var(--Page-bg-page-secondary);
+  --bg-tertiary: var(--Container-bg-container-secondary);
+  --bg-hover: var(--Container-bg-neutral-light-hover);
+  --text-danger: var(--Text-text-error);
+  --border-neutral-light: var(--Border-divider-neutral-basic);
+  --bg-solid-disable: 0.5;
+
+  /* 基础圆角 - Medium 主题 (默认) */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-circle: 999px;
+
+  /* Shadow 阴影 */
+  --shadow-basic: 0 1px 10px 0 #0000000d, 0 4px 5px 0 #00000014, 0 2px 4px -1px #0000001f;
+  --shadow-medium: 0 3px 14px 2px #0000000d, 0 8px 10px 1px #0000000f, 0 5px 5px -3px #0000001a;
+  --shadow-high: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #0000001f;
+  --shadow-focus: 0 0 0 2px var(--Focusring-focusring-brand);
+
+  /* AI 渐变背景 */
+  --ai-bg: linear-gradient(90deg, #eff7ff 0%, #f4f4ff 30%, #f8edff 60%, #fff2ff 100%);
+  --ai-light: linear-gradient(90deg, #eff7ff 0%, #f4f4ff 30%, #f8edff 60%, #fff2ff 100%);
+  --ai-light-hover: linear-gradient(90deg, #d5ebff 0%, #dfe0ff 30%, #f2daff 60%, #ffdafe 100%);
+  --ai-light-active: linear-gradient(90deg, #abd5ff 0%, #c1c0ff 30%, #e3b5ff 60%, #feb5ff 100%);
+  --ai-general: linear-gradient(90deg, #2e8cff 0%, #6b61ff 30%, #a647ff 60%, #e945ff 100%);
+  --ai-general-hover: linear-gradient(90deg, #82beff 0%, #a3a0ff 30%, #d191ff 60%, #f98fff 100%);
+  --ai-general-active: linear-gradient(90deg, #2172db 0%, #584ddb 30%, #8636db 60%, #c235db 100%);
+
+  /* 边框宽度 */
+  --border-width: 1px;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+  --border-4: 4px;
+}
+
+.dark {
+  /* ==================== Semantic 语义化 - Dark (Figma) ==================== */
+  --Page-bg-page: var(--Dark-Neutral-neutral-10);
+  --Page-bg-page-secondary: var(--Dark-Neutral-neutral-50);
+  --Page-bg-page-brand: var(--Dark-Brand-brand-50);
+  --Container-bg-container: var(--Dark-Neutral-neutral-10);
+  --Container-bg-container-secondary: var(--Dark-Neutral-neutral-50);
+  --Container-bg-container-placeholder: var(--Dark-Neutral-neutral-200);
+  --Container-bg-container-disable: var(--Dark-Neutral-neutral-200);
+  --Container-bg-neutral-light: var(--Dark-Neutral-neutral-100);
+  --Container-bg-neutral-light-hover: var(--Dark-Neutral-neutral-200);
+  --Container-bg-neutral-light-active: var(--Dark-Neutral-neutral-300);
+  --Container-bg-neutral: var(--Dark-Brand-brand-600);
+  --Container-bg-neutral-hover: var(--Dark-Brand-brand-700);
+  --Container-bg-neutral-active: var(--Dark-Brand-brand-500);
+  --Container-bg-brand-light: var(--Dark-Brand-brand-100);
+  --Container-bg-brand-light-hover: var(--Dark-Brand-brand-200);
+  --Container-bg-brand-light-active: var(--Dark-Brand-brand-300);
+  --Container-bg-brand: var(--Dark-Brand-brand-600);
+  --Container-bg-brand-hover: var(--Dark-Brand-brand-700);
+  --Container-bg-brand-active: var(--Dark-Brand-brand-500);
+  --Container-bg-success-light: var(--Dark-Success-success-100);
+  --Container-bg-success-light-hover: var(--Dark-Success-success-200);
+  --Container-bg-success-light-active: var(--Dark-Success-success-300);
+  --Container-bg-success: var(--Dark-Success-success-600);
+  --Container-bg-success-hover: var(--Dark-Success-success-700);
+  --Container-bg-success-active: var(--Dark-Success-success-500);
+  --Container-bg-warning-light: var(--Dark-Warning-warning-100);
+  --Container-bg-warning-light-hover: var(--Dark-Warning-warning-200);
+  --Container-bg-warning-light-active: var(--Dark-Warning-warning-300);
+  --Container-bg-warning: var(--Dark-Warning-warning-600);
+  --Container-bg-warning-hover: var(--Dark-Warning-warning-700);
+  --Container-bg-warning-active: var(--Dark-Warning-warning-500);
+  --Container-bg-error-light: var(--Dark-Error-error-100);
+  --Container-bg-error-light-hover: var(--Dark-Error-error-200);
+  --Container-bg-error-light-active: var(--Dark-Error-error-300);
+  --Container-bg-error: var(--Dark-Error-error-600);
+  --Container-bg-error-hover: var(--Dark-Error-error-700);
+  --Container-bg-error-active: var(--Dark-Error-error-500);
+  --Text-text-title: var(--Dark-Neutral-neutral-900);
+  --Text-text-primary: var(--Dark-Neutral-neutral-800);
+  --Text-text-secondary: var(--Dark-Neutral-neutral-700);
+  --Text-text-tertiary: var(--Dark-Neutral-neutral-600);
+  --Text-text-disable: var(--Dark-Neutral-neutral-400);
+  --Text-text-placeholder: var(--Dark-Neutral-neutral-400);
+  --Text-text-brand: var(--Dark-Brand-brand-600);
+  --Text-text-brand-hover: var(--Dark-Brand-brand-700);
+  --Text-text-brand-active: var(--Dark-Brand-brand-500);
+  --Text-text-success: var(--Dark-Success-success-600);
+  --Text-text-success-hover: var(--Dark-Success-success-700);
+  --Text-text-success-active: var(--Dark-Success-success-500);
+  --Text-text-warning: var(--Dark-Warning-warning-600);
+  --Text-text-warning-hover: var(--Dark-Warning-warning-700);
+  --Text-text-warning-active: var(--Dark-Warning-warning-500);
+  --Text-text-error: var(--Dark-Error-error-600);
+  --Text-text-error-hover: var(--Dark-Error-error-700);
+  --Text-text-error-active: var(--Dark-Error-error-500);
+  --Border-border-neutral: var(--Dark-Neutral-neutral-300);
+  --Focusring-focusring-brand: var(--Dark-Brand-brand-300);
+  --Focusring-focusring-error: var(--Dark-Error-error-300);
+  --Focusring-focusring-success: var(--Dark-Success-success-300);
+  --Focusring-focusring-warning: var(--Dark-Warning-warning-300);
+  --Border-divider-neutral-basic: var(--Dark-Neutral-neutral-300);
+  --Border-divider-neutral-strong: var(--Dark-Neutral-neutral-400);
+  --Border-border-brand-light: var(--Dark-Brand-brand-300);
+  --Border-border-brand-light-hover: var(--Dark-Brand-brand-400);
+  --Border-border-brand-light-active: var(--Dark-Brand-brand-400);
+  --Border-border-brand: var(--Dark-Brand-brand-600);
+  --Border-border-brand-hover: var(--Dark-Brand-brand-700);
+  --Border-border-brand-active: var(--Dark-Brand-brand-500);
+  --Border-border-success-light: var(--Dark-Success-success-300);
+  --Border-border-success-light-hover: var(--Dark-Success-success-400);
+  --Border-border-success: var(--Dark-Success-success-600);
+  --Border-border-success-hover: var(--Dark-Success-success-700);
+  --Border-border-success-active: var(--Dark-Success-success-500);
+  --Border-border-warning-light: var(--Dark-Warning-warning-300);
+  --Border-border-warning-light-hover: var(--Dark-Warning-warning-400);
+  --Border-border-warning: var(--Dark-Warning-warning-600);
+  --Border-border-warning-hover: var(--Dark-Warning-warning-700);
+  --Border-border-warning-active: var(--Dark-Warning-warning-500);
+  --Border-border-error-light: var(--Dark-Error-error-300);
+  --Border-border-error-light-hover: var(--Dark-Error-error-400);
+  --Border-border-error-light-active: var(--Dark-Error-error-400);
+  --Border-border-error: var(--Dark-Error-error-600);
+  --Border-border-error-hover: var(--Dark-Error-error-700);
+  --Border-border-error-active: var(--Dark-Error-error-500);
+
+  /* 旧变量别名 - Dark */
+  --text-primary: var(--Text-text-primary);
+  --text-secondary: var(--Text-text-secondary);
+  --bg-container: var(--Container-bg-container);
+  --bg-page: var(--Page-bg-page);
+  --bg-page-secondary: var(--Page-bg-page-secondary);
+  --bg-page-brand: var(--Page-bg-page-brand);
+  --bg-neutral-light-hover: var(--Container-bg-neutral-light-hover);
+  --bg-brand: var(--Container-bg-brand);
+  --bg-success: var(--Container-bg-success);
+  --bg-item-hover: var(--Container-bg-neutral-light-hover);
+  --bg-item-active: var(--Container-bg-neutral-light-active);
+  --border-neutral: var(--Border-border-neutral);
+  --font-family-cn: var(--font-family-CN);
+  --bg-brand-subtle: var(--Container-bg-brand-light);
+  --bg-brand-subtle-hover: var(--Container-bg-brand-light-hover);
+  --ring-brand: var(--Focusring-focusring-brand);
+  --bg-secondary: var(--Container-bg-neutral);
+  --bg-secondary-hover: var(--Container-bg-neutral-hover);
+  --bg-secondary-active: var(--Container-bg-neutral-active);
+  --bg-secondary-light: var(--Container-bg-neutral-light);
+  --bg-secondary-light-hover: var(--Container-bg-neutral-light-hover);
+  --bg-secondary-light-active: var(--Container-bg-neutral-light-active);
+  --border-secondary-light: var(--Border-border-neutral);
+  --border-secondary-light-hover: var(--Border-border-neutral);
+  --border-secondary-light-active: var(--Border-border-neutral);
+  --border-brand-light-active: var(--Border-border-brand-light-active);
+  --border-error-light-active: var(--Border-border-error-light-active);
+
+  /* shadcn 别名 - Dark */
+  --background: var(--Page-bg-page);
+  --foreground: var(--Text-text-title);
+  --card: var(--Container-bg-container);
+  --card-foreground: var(--Text-text-title);
+  --popover: var(--Dark-Neutral-neutral-50);
+  --popover-foreground: var(--Text-text-title);
+  --primary: var(--Container-bg-brand);
+  --primary-foreground: var(--Text-text-inverse);
+  --secondary: var(--Container-bg-neutral-light);
+  --secondary-foreground: var(--Text-text-title);
+  --muted: var(--Container-bg-neutral-light);
+  --muted-foreground: var(--Text-text-secondary);
+  --accent: var(--Container-bg-neutral-light);
+  --accent-foreground: var(--Text-text-title);
+  --destructive: var(--Container-bg-error);
+  --destructive-foreground: var(--Text-text-inverse);
+  --border: var(--Border-border-neutral);
+  --input: var(--Border-border-neutral);
+  --ring: var(--Focusring-focusring-brand);
+  --surface: var(--Page-bg-page-secondary);
+  --surface-foreground: var(--Text-text-secondary);
+
+  --code: #1b1a1d;
+  --code-foreground: #b2afba;
+  --code-highlight: #232326;
+  --code-number: #7c7a85;
+  --selection: #b2afba;
+  --selection-foreground: #141414;
+  --shadow-focus: 0 0 0 2px var(--Focusring-focusring-brand);
+}
+
+@theme inline {
+  /* ==================== Font-family 字体族 - Figma ==================== */
+  --font-family-CN: "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-EN: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-family-display: "Source Han Sans SC", "PingFang SC", sans-serif;
+  --font-family-code: ui-monospace, Menlo, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", monospace;
+
+  --font-family-en: var(--font-family-EN);
+  --font-family-cn: var(--font-family-CN);
+  --font-sans: var(--font-family-CN);
+  --font-mono: var(--font-family-code);
+
+  /* ==================== Font weight 字重 ==================== */
+  --font-weight-400: 400;
+  --font-weight-600: 600;
+
+  /* ==================== Font size 字号 - Figma ==================== */
+  --font-size-0: 8px;
+  --font-size-1: 12px;
+  --font-size-2: 14px;
+  --font-size-3: 16px;
+  --font-size-4: 20px;
+  --font-size-5: 24px;
+  --font-size-6: 28px;
+  --font-size-7: 36px;
+  --font-size-8: 48px;
+  --font-size-9: 64px;
+  --font-size-10: 64px;
+
+  /* ==================== Line height 行高 - Figma ==================== */
+  --line-height-0: 12px;
+  --line-height-1: 20px;
+  --line-height-2: 22px;
+  --line-height-3: 24px;
+  --line-height-4: 28px;
+  --line-height-5: 32px;
+  --line-height-6: 36px;
+  --line-height-7: 44px;
+  --line-height-8: 56px;
+  --line-height-9: 72px;
+
+  /* 圆角 */
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --radius-circle: 999px;
+
+  /* ==================== Space 间距 - Figma ==================== */
+  --Space-space-1: 2px;
+  --Space-space-2: 4px;
+  --Space-space-3: 6px;
+  --Space-space-4: 8px;
+  --Space-space-5: 12px;
+  --Space-space-6: 16px;
+  --Space-space-7: 20px;
+  --Space-space-8: 24px;
+  --Space-space-9: 32px;
+  --Space-space-10: 40px;
+  --Space-space-11: 48px;
+  --Space-space-12: 64px;
+
+  --space-1: var(--Space-space-1);
+  --space-2: var(--Space-space-2);
+  --space-3: var(--Space-space-3);
+  --space-4: var(--Space-space-4);
+  --space-5: var(--Space-space-5);
+  --space-6: var(--Space-space-6);
+  --space-7: var(--Space-space-7);
+  --space-8: var(--Space-space-8);
+  --space-9: var(--Space-space-9);
+  --space-10: var(--Space-space-10);
+  --space-11: var(--Space-space-11);
+  --space-12: var(--Space-space-12);
+  --spacing: var(--Space-space-2);
+
+  --Margin-margin-com-2xs: var(--Space-space-1);
+  --Margin-margin-com-xs: var(--Space-space-2);
+  --Margin-margin-com-sm: var(--Space-space-3);
+  --Margin-margin-com-md: var(--Space-space-4);
+  --Margin-margin-com-lg: var(--Space-space-5);
+  --Margin-margin-com-xl: var(--Space-space-6);
+  --Margin-margin-com-2xl: var(--Space-space-8);
+  --Margin-margin-com-3xl: var(--Space-space-9);
+
+  --Padding-padding-com-2xs: var(--Space-space-1);
+  --Padding-padding-com-xs: var(--Space-space-2);
+  --Padding-padding-com-sm: var(--Space-space-3);
+  --Padding-padding-com-md: var(--Space-space-4);
+  --Padding-padding-com-lg: var(--Space-space-5);
+  --Padding-padding-com-xl: var(--Space-space-6);
+  --Padding-padding-com-2xl: var(--Space-space-8);
+  --Padding-padding-com-3xl: var(--Space-space-9);
+
+  --Gap-gap-2xs: var(--Space-space-1);
+  --Gap-gap-xs: var(--Space-space-2);
+  --Gap-gap-sm: var(--Space-space-3);
+  --Gap-gap-md: var(--Space-space-4);
+  --Gap-gap-lg: var(--Space-space-5);
+  --Gap-gap-xl: var(--Space-space-6);
+  --Gap-gap-2xl: var(--Space-space-8);
+
+  --Size-size-com-xs: var(--Space-space-7);
+  --Size-size-com-sm: var(--Space-space-8);
+  --Size-size-com-md: var(--Space-space-9);
+  --Size-size-com-lg: var(--Space-space-10);
+
+  /* 向后兼容 */
+  --margin-com-2xs: var(--Margin-margin-com-2xs);
+  --margin-com-xs: var(--Margin-margin-com-xs);
+  --margin-com-sm: var(--Margin-margin-com-sm);
+  --margin-com-md: var(--Margin-margin-com-md);
+  --margin-com-lg: var(--Margin-margin-com-lg);
+  --margin-com-xl: var(--Margin-margin-com-xl);
+  --margin-com-2xl: var(--Margin-margin-com-2xl);
+  --margin-com-3xl: var(--Margin-margin-com-3xl);
+  --padding-com-2xs: var(--Padding-padding-com-2xs);
+  --padding-com-xs: var(--Padding-padding-com-xs);
+  --padding-com-sm: var(--Padding-padding-com-sm);
+  --padding-com-md: var(--Padding-padding-com-md);
+  --padding-com-lg: var(--Padding-padding-com-lg);
+  --padding-com-xl: var(--Padding-padding-com-xl);
+  --padding-com-2xl: var(--Padding-padding-com-2xl);
+  --padding-com-3xl: var(--Padding-padding-com-3xl);
+  --gap-2xs: var(--Gap-gap-2xs);
+  --gap-xs: var(--Gap-gap-xs);
+  --gap-sm: var(--Gap-gap-sm);
+  --gap-md: var(--Gap-gap-md);
+  --gap-lg: var(--Gap-gap-lg);
+  --gap-xl: var(--Gap-gap-xl);
+  --gap-2xl: var(--Gap-gap-2xl);
+  --size-com-xs: var(--Size-size-com-xs);
+  --size-com-sm: var(--Size-size-com-sm);
+  --size-com-md: var(--Size-size-com-md);
+  --size-com-lg: var(--Size-size-com-lg);
+
+  /* 边框宽度 */
+  --border-width: 1px;
+
+  /* 阴影 */
+  --shadow-basic: 0 1px 10px 0 #0000000d, 0 4px 5px 0 #00000014, 0 2px 4px -1px #0000001f;
+  --shadow-medium: 0 3px 14px 2px #0000000d, 0 8px 10px 1px #0000000f, 0 5px 5px -3px #0000001a;
+  --shadow-high: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #0000001f;
+
+  /* 颜色映射到 Tailwind */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
+  --color-code-highlight: var(--code-highlight);
+  --color-code-number: var(--code-number);
+  --color-selection: var(--selection);
+  --color-selection-foreground: var(--selection-foreground);
+
+  /* Neutral 颜色 - Figma 原语 */
+  --color-neutral-0: var(--Light-Neutral-neutral-0);
+  --color-neutral-10: var(--Light-Neutral-neutral-10);
+  --color-neutral-50: var(--Light-Neutral-neutral-50);
+  --color-neutral-100: var(--Light-Neutral-neutral-100);
+  --color-neutral-200: var(--Light-Neutral-neutral-200);
+  --color-neutral-300: var(--Light-Neutral-neutral-300);
+  --color-neutral-400: var(--Light-Neutral-neutral-400);
+  --color-neutral-500: var(--Light-Neutral-neutral-500);
+  --color-neutral-600: var(--Light-Neutral-neutral-600);
+  --color-neutral-700: var(--Light-Neutral-neutral-700);
+  --color-neutral-800: var(--Light-Neutral-neutral-800);
+  --color-neutral-900: var(--Light-Neutral-neutral-900);
+  --color-neutral-1000: var(--Light-Neutral-neutral-1000);
+
+  /* 品牌色 - Figma 原语 */
+  --color-brand-50: var(--Light-Brand-brand-50);
+  --color-brand-100: var(--Light-Brand-brand-100);
+  --color-brand-200: var(--Light-Brand-brand-200);
+  --color-brand-300: var(--Light-Brand-brand-300);
+  --color-brand-400: var(--Light-Brand-brand-400);
+  --color-brand-500: var(--Light-Brand-brand-500);
+  --color-brand-600: var(--Light-Brand-brand-600);
+  --color-brand-700: var(--Light-Brand-brand-700);
+  --color-brand-800: var(--Light-Brand-brand-800);
+  --color-brand-900: var(--Light-Brand-brand-900);
+  --color-brand-1000: var(--Light-Brand-brand-1000);
+
+  /* Success 颜色 - Figma 原语 */
+  --color-success-50: var(--Light-Success-success-50);
+  --color-success-100: var(--Light-Success-success-100);
+  --color-success-200: var(--Light-Success-success-200);
+  --color-success-300: var(--Light-Success-success-300);
+  --color-success-400: var(--Light-Success-success-400);
+  --color-success-500: var(--Light-Success-success-500);
+  --color-success-600: var(--Light-Success-success-600);
+  --color-success-700: var(--Light-Success-success-700);
+  --color-success-800: var(--Light-Success-success-800);
+  --color-success-900: var(--Light-Success-success-900);
+  --color-success-1000: var(--Light-Success-success-1000);
+  --color-success: var(--Light-Success-success-600);
+
+  /* Warning 颜色 - Figma 原语 */
+  --color-warning-50: var(--Light-Warning-warning-50);
+  --color-warning-100: var(--Light-Warning-warning-100);
+  --color-warning-200: var(--Light-Warning-warning-200);
+  --color-warning-300: var(--Light-Warning-warning-300);
+  --color-warning-400: var(--Light-Warning-warning-400);
+  --color-warning-500: var(--Light-Warning-warning-500);
+  --color-warning-600: var(--Light-Warning-warning-600);
+  --color-warning-700: var(--Light-Warning-warning-700);
+  --color-warning-800: var(--Light-Warning-warning-800);
+  --color-warning-900: var(--Light-Warning-warning-900);
+  --color-warning-10000: var(--Light-Warning-warning-1000);
+  --color-warning: var(--Light-Warning-warning-600);
+
+  /* Error 颜色 - Figma 原语 */
+  --color-error-50: var(--Light-Error-error-50);
+  --color-error-100: var(--Light-Error-error-100);
+  --color-error-200: var(--Light-Error-error-200);
+  --color-error-300: var(--Light-Error-error-300);
+  --color-error-400: var(--Light-Error-error-400);
+  --color-error-500: var(--Light-Error-error-500);
+  --color-error-600: var(--Light-Error-error-600);
+  --color-error-700: var(--Light-Error-error-700);
+  --color-error-800: var(--Light-Error-error-800);
+  --color-error-900: var(--Light-Error-error-900);
+  --color-error-1000: var(--Light-Error-error-10000);
+  --color-error-10000: var(--Light-Error-error-10000);
+  --color-error: var(--Light-Error-error-600);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  ::selection {
+    @apply bg-selection text-selection-foreground;
+  }
+
+  html {
+    @apply overscroll-y-none scroll-smooth;
+  }
+
+  body {
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    @apply bg-background text-foreground;
+  }
+
+  html:has([data-themes-page]),
+  body:has([data-themes-page]) {
+    height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body:has([data-themes-page]) > * {
+    min-height: 0;
+  }
+
+  html:has([data-compositions-page]),
+  body:has([data-compositions-page]) {
+    height: 100dvh;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body:has([data-compositions-page]) > * {
+    min-height: 0;
+  }
+
+  a:active,
+  button:active {
+    @apply opacity-60 md:opacity-100;
+  }
+
+  .border {
+    border-width: var(--border-width);
+  }
+  .border-x {
+    border-left-width: var(--border-width);
+    border-right-width: var(--border-width);
+  }
+  .border-y {
+    border-top-width: var(--border-width);
+    border-bottom-width: var(--border-width);
+  }
+  .border-t {
+    border-top-width: var(--border-width);
+  }
+  .border-r {
+    border-right-width: var(--border-width);
+  }
+  .border-b {
+    border-bottom-width: var(--border-width);
+  }
+  .border-l {
+    border-left-width: var(--border-width);
+  }
+  .font-size-1 {
+    font-size: var(--font-size-1);
+  }
+  .font-size-2 {
+    font-size: var(--font-size-2);
+  }
+  .font-size-3 {
+    font-size: var(--font-size-3);
+  }
+  .font-size-4 {
+    font-size: var(--font-size-4);
+  }
+  .font-size-5 {
+    font-size: var(--font-size-5);
+  }
+  .font-size-6 {
+    font-size: var(--font-size-6);
+  }
+  .font-semibold {
+    font-weight: 600;
+  }
+}
+
+@utility theme-container {
+  @apply font-sans;
+}
+
+@utility container-wrapper {
+  @apply mx-auto w-full px-2;
+}
+
+@utility container {
+  @apply mx-auto max-w-[1400px] px-4 lg:px-8;
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility step {
+  counter-increment: step;
+  @apply relative;
+
+  &:before {
+    @apply text-muted-foreground right-0 mr-2 hidden size-7 items-center justify-center rounded-full text-center -indent-px font-mono text-sm font-medium md:absolute;
+    content: counter(step);
+  }
+}
