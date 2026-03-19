@@ -113,6 +113,8 @@ export interface MessageListProps {
   renderContent?: MessageContentRenderer;
   /** 自定义消息渲染器（完全自定义消息项渲染） */
   renderMessage?: MessageRenderer;
+  /** 消息为空时的自定义内容（不传则显示默认「暂无消息」） */
+  emptyContent?: React.ReactNode;
 }
 
 /** 自动滚动时认为用户「在底部」的阈值（px） */
@@ -316,6 +318,7 @@ export const MessageList = React.forwardRef<HTMLDivElement, MessageListProps>(
       showDefaultFeedback = false,
       renderContent = defaultContentRenderer,
       renderMessage,
+      emptyContent,
       ...props
     },
     ref,
@@ -351,7 +354,7 @@ export const MessageList = React.forwardRef<HTMLDivElement, MessageListProps>(
       isUserNearBottomRef.current = distanceFromBottom <= SCROLL_THRESHOLD;
     }, []);
 
-    const emptyContent = React.useMemo(
+    const defaultEmptyContent = React.useMemo(
       () => (
         <div className="flex items-center justify-center h-full text-[var(--Text-text-tertiary)] text-sm">
           暂无消息
@@ -401,7 +404,7 @@ export const MessageList = React.forwardRef<HTMLDivElement, MessageListProps>(
           aria-live="polite"
           onScroll={handleScroll}
         >
-          {messagesLength === 0 ? emptyContent : messageItems}
+          {messagesLength === 0 ? (emptyContent ?? defaultEmptyContent) : messageItems}
         </div>
       </div>
     );
