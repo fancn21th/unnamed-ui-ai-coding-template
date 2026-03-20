@@ -161,7 +161,7 @@ export function ChatPanel() {
         />
       </div>
 
-      <div className="shrink-0 border-t border-[var(--Border-divider-neutral-basic)] p-4">
+      <div className="shrink-0 p-4">
         <ResponsiveSender
           value={inputValue}
           onChange={setInputValue}
