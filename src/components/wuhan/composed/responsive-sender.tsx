@@ -8,15 +8,12 @@ import {
   SenderResponsiveButtonGroup,
   SenderResponsiveAttachmentButton,
   SenderResponsiveSendButton,
-  type ResponsiveTextareaProps,
-  type ResponsiveButtonGroupProps,
 } from "@/components/wuhan/blocks/sender-responsive-01";
 import {
   AttachmentListComposed,
   type AttachmentItem,
 } from "@/components/wuhan/composed/attachment-list";
 import { Paperclip, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 /**
  * @public
@@ -318,10 +315,16 @@ function ResponsiveSenderInner<TAttachment = Attachment>(
     sizeLimit,
   };
 
-  const handleOverflowChange = (overflow: boolean) => {
-    setIsOverflow(overflow);
-    onOverflowChange?.(overflow);
-  };
+  const handleOverflowChange = React.useCallback(
+    (overflow: boolean) => {
+      setIsOverflow((prev) => {
+        if (prev === overflow) return prev;
+        onOverflowChange?.(overflow);
+        return overflow;
+      });
+    },
+    [onOverflowChange],
+  );
 
   const handleSubmit = (event?: React.SyntheticEvent) => {
     onSubmit?.({

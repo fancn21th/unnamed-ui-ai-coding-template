@@ -4,8 +4,6 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import {
   AgentCardPrimitive,
-  AgentCardContainerPrimitive,
-  AgentCardHeaderPrimitive,
   AgentCardAiIcon,
 } from "@/components/wuhan/blocks/agent-card-01";
 
