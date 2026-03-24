@@ -55,12 +55,13 @@ export const ResponsiveContainer = React.forwardRef<
       children,
       className,
       maxWidth = "100%",
-      forceSingleLine,
       onOverflowChange,
-      ...props
+      forceSingleLine,
+      ...formProps
     },
     ref,
   ) => {
+    void forceSingleLine;
     const [isOverflow, setIsOverflow] = React.useState(false);
 
     const handleOverflowChange = React.useCallback(
@@ -83,7 +84,7 @@ export const ResponsiveContainer = React.forwardRef<
           className={cn(
             "relative flex w-full flex-col border rounded-[var(--radius-2xl)] p-[var(--Padding-padding-com-lg)] gap-[var(--Gap-gap-md)]",
           )}
-          {...props}
+          {...formProps}
         >
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
@@ -165,17 +166,28 @@ export const ResponsiveTextarea = React.forwardRef<
   );
   const [multiLineMaxHeight, setMultiLineMaxHeight] = React.useState(120);
   const onOverflowChangeRef = React.useRef(onOverflowChange);
-  onOverflowChangeRef.current = onOverflowChange;
+  React.useEffect(() => {
+    onOverflowChangeRef.current = onOverflowChange;
+  }, [onOverflowChange]);
 
   const singleLineWidthRef = React.useRef<number>(0);
   const rafRef = React.useRef<number | null>(null);
   const lastHeightsRef = React.useRef({ single: 0, content: 0, multiMax: 0 });
+  const lastOverflowRef = React.useRef<boolean | null>(null);
+  const overflowDebounceRef = React.useRef<ReturnType<
+    typeof setTimeout
+  > | null>(null);
 
   const runCheck = React.useCallback(
-    (textarea: HTMLTextAreaElement, measureWidth: number) => {
+    (
+      textarea: HTMLTextAreaElement,
+      measureWidth: number,
+      overflowMeasureWidth?: number,
+    ) => {
       const origH = textarea.style.height;
       const origW = textarea.style.width;
 
+      // 高度计算使用当前布局宽度
       textarea.style.width = `${measureWidth}px`;
       textarea.style.height = "auto";
       const scrollHeight = textarea.scrollHeight;
@@ -189,6 +201,21 @@ export const ResponsiveTextarea = React.forwardRef<
       const pb = parseFloat(cs.paddingBottom) || 0;
       const contentHeightCalc = scrollHeight - pt - pb;
       const lines = Math.ceil(contentHeightCalc / lineHeight) || 1;
+
+      // overflow 决策：始终用单行宽度测量，避免布局切换导致单行/多行宽度不同而振荡
+      let overflowLines = lines;
+      const widthForOverflow =
+        overflowMeasureWidth && overflowMeasureWidth > 0
+          ? overflowMeasureWidth
+          : measureWidth;
+      if (widthForOverflow !== measureWidth) {
+        textarea.style.width = `${widthForOverflow}px`;
+        textarea.style.height = "auto";
+        const sh = textarea.scrollHeight;
+        textarea.style.height = origH;
+        textarea.style.width = origW;
+        overflowLines = Math.ceil((sh - pt - pb) / lineHeight) || 1;
+      }
 
       // 单行高度取 lineHeight+padding 与实测 scrollHeight 的较大值，避免硬编码导致滚动条
       const oneLineHeight = Math.ceil(lineHeight + pt + pb);
@@ -216,7 +243,17 @@ export const ResponsiveTextarea = React.forwardRef<
         last.content = newContentHeight;
         setContentHeight(newContentHeight);
       }
-      onOverflowChangeRef.current?.(lines > 1);
+      const newOverflow = overflowLines > 1;
+      if (lastOverflowRef.current === newOverflow) return;
+
+      if (overflowDebounceRef.current)
+        clearTimeout(overflowDebounceRef.current);
+      overflowDebounceRef.current = setTimeout(() => {
+        overflowDebounceRef.current = null;
+        if (lastOverflowRef.current === newOverflow) return;
+        lastOverflowRef.current = newOverflow;
+        onOverflowChangeRef.current?.(newOverflow);
+      }, 50);
     },
     [],
   );
@@ -226,9 +263,10 @@ export const ResponsiveTextarea = React.forwardRef<
     if (!textarea) return;
 
     const checkHeight = () => {
-      // 多行时用实际显示宽度测量，确保高度与当前换行一致，避免多余空白行
       if (!isOverflow) singleLineWidthRef.current = textarea.offsetWidth;
-      runCheck(textarea, textarea.offsetWidth);
+      // 多行时用 singleLineWidthRef 做 overflow 决策，避免布局切换导致测量宽度变化而振荡
+      const overflowWidth = isOverflow ? singleLineWidthRef.current : undefined;
+      runCheck(textarea, textarea.offsetWidth, overflowWidth);
     };
 
     checkHeight();
@@ -246,7 +284,10 @@ export const ResponsiveTextarea = React.forwardRef<
       rafRef.current = requestAnimationFrame(() => {
         rafRef.current = null;
         if (!isOverflow) singleLineWidthRef.current = textarea.offsetWidth;
-        runCheck(textarea, textarea.offsetWidth);
+        const overflowWidth = isOverflow
+          ? singleLineWidthRef.current
+          : undefined;
+        runCheck(textarea, textarea.offsetWidth, overflowWidth);
       });
     });
     resizeObserver.observe(textarea);
@@ -254,6 +295,8 @@ export const ResponsiveTextarea = React.forwardRef<
     return () => {
       textarea.removeEventListener("input", handleInput);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (overflowDebounceRef.current)
+        clearTimeout(overflowDebounceRef.current);
       resizeObserver.disconnect();
     };
   }, [runCheck, isOverflow]);
@@ -266,7 +309,7 @@ export const ResponsiveTextarea = React.forwardRef<
 
     const rafId = requestAnimationFrame(() => {
       singleLineWidthRef.current = textarea.offsetWidth;
-      runCheck(textarea, textarea.offsetWidth);
+      runCheck(textarea, textarea.offsetWidth, undefined);
     });
     return () => cancelAnimationFrame(rafId);
   }, [isOverflow, runCheck]);

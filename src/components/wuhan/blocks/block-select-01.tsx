@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Select } from "radix-ui";
 import { Check, ChevronDown, ChevronUp, X } from "lucide-react";
@@ -33,12 +34,6 @@ const TRIGGER_FOCUS_STYLES = [
   "focus-visible:border-[var(--Border-border-brand)]",
   "focus-visible:ring-2",
   "focus-visible:ring-[var(--ring)]",
-] as const;
-
-const TRIGGER_OPEN_STYLES = [
-  "border-[var(--Border-border-brand)]",
-  "ring-2",
-  "ring-[var(--ring)]",
 ] as const;
 
 const TRIGGER_DISABLED_STYLES = [
@@ -99,7 +94,9 @@ export const TagPrimitive = React.forwardRef<
     >
       <span>{label}</span>
       {onRemove && (
-        <button
+        <Button
+          variant="unstyled"
+          size="unstyled"
           type="button"
           onClick={(e) => {
             e.stopPropagation();
@@ -108,7 +105,7 @@ export const TagPrimitive = React.forwardRef<
           className="hover:bg-[var(--Container-bg-brand-light-hover)] rounded-sm p-0.5"
         >
           <X className="h-3 w-3" />
-        </button>
+        </Button>
       )}
     </span>
   );
@@ -546,9 +543,9 @@ MultiSelectPlaceholderPrimitive.displayName = "MultiSelectPlaceholderPrimitive";
  * MultiSelect Content 原语
  * 多选模式下的下拉内容，基于 Popover.Content
  */
-export interface MultiSelectContentPrimitiveProps extends React.ComponentPropsWithoutRef<
+export type MultiSelectContentPrimitiveProps = React.ComponentPropsWithoutRef<
   typeof PopoverPrimitive.Content
-> {}
+>;
 
 export const MultiSelectContentPrimitive = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
