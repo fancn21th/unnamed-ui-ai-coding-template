@@ -53,6 +53,7 @@ pnpm typecheck
 | [**简要总结**](docs/AI_CODING_EXECUTIVE_SUMMARY.md) | 从成果、效率、投入产出梳理本次 AI 搭建对话页的过程；基础设施（组件模板、UWS、Rules、Skills、MCP）与后续建议。 |
 | [**回顾与反思**](docs/AI_CODING_RETROSPECTIVE.md) | 技术向：人类指导修正清单、减少返工的做法、对话 Mock 与协议化思路、实现目录结构、做得好与不好的点。 |
 | [**本地 Figma MCP**](docs/figma-mcp-local.md) | 本地桌面 MCP 的价值、与在线 MCP 配额对比、配置步骤、**文件权限与 Dev Mode**、选区过大 **token 限制**及**按 node 拆分**的规避方式。 |
+| [**AI Coding 实践产物（list）**](list/README.md) | 需求→设计→编码→测试→上线：各阶段分目录文档、编码示例、`pnpm test` 用例。 |
 
 ---
 
